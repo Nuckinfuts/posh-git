@@ -10,17 +10,22 @@ Import-Module .\posh-git
 
 # Set up a simple prompt, adding the git prompt parts inside git repos
 function global:prompt {
+    $cyan = [ConsoleColor]::Cyan
+    $red = [ConsoleColor]::Red
+
     $realLASTEXITCODE = $LASTEXITCODE
 
     # Reset color, which can be messed up by Enable-GitColors
     $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
 
-    Write-Host($pwd.ProviderPath) -nonewline
+    Write-Host($pwd.ProviderPath) -nonewline -f $cyan
 
     Write-VcsStatus
 
     $global:LASTEXITCODE = $realLASTEXITCODE
-    return "> "
+
+    Write-Host " >" -n -f $red
+    return " "
 }
 
 Enable-GitColors
