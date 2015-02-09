@@ -32,23 +32,3 @@ Enable-GitColors
 
 Pop-Location
 
-#Start-SshAgent -Quiet
-
-# setup aliases
-function Get-GitStatus { git status }
-Set-Alias gs Get-GitStatus
-
-function Get-GitDiff { git diff }
-Set-Alias gd Get-GitDiff
-
-function Get-GitDiffCached { git diff --cached }
-Set-Alias gdc Get-GitDiffCached
-
-function Get-GitAddAll { git add --all }
-Set-Alias ga Get-GitAddAll
-
-function Get-GitCommit { git commit }
-Set-Alias gco Get-GitCommit
-
-function Get-GitCommitAll { git commit -a }
-Set-Alias gca Get-GitCommitAll
